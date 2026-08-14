@@ -4,13 +4,13 @@ import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 
 
-function figmaAssetResolver() {
+function assetPlaceholderResolver() {
   return {
-    name: 'figma-asset-resolver',
+      name: 'asset-placeholder-resolver',
     resolveId(id) {
-      if (id.startsWith('figma:asset/')) {
-        const filename = id.replace('figma:asset/', '')
-        return path.resolve(__dirname, 'src/assets', filename)
+      if (id.startsWith('asset:')) {
+        const filename = id.replace('asset:', '')
+          return filename
       }
     },
   }
@@ -18,7 +18,7 @@ function figmaAssetResolver() {
 
 export default defineConfig({
   plugins: [
-    figmaAssetResolver(),
+       assetPlaceholderResolver(),
     // The React and Tailwind plugins are both required for Make, even if
     // Tailwind is not being actively used – do not remove them
     react(),
