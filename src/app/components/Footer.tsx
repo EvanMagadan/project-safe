@@ -44,9 +44,6 @@ export function Footer() {
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm">
           <p>&copy; 2026 Project SAFE. All rights reserved.</p>
-          <p className="mt-2 text-xs text-gray-500">
-            Created by Shanice Tagoon, Earl John Timbang, and Meld-Ve Tocmo
-          </p>
         </div>
       </div>
     </footer>

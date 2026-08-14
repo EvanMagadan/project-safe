@@ -1,8 +1,5 @@
 import { useState } from "react";
 import { Mail, Phone, CheckCircle } from "lucide-react";
-import shaniceImg from "../../imports/shanice.jpeg";
-import earlImg from "../../imports/earl.jpeg";
-import meldImg from "../../imports/meld.jpeg";
 
 export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -27,7 +24,7 @@ export function Contact() {
           email: formData.get('email'),
           subject: formData.get('subject'),
           message: formData.get('message'),
-          _cc: 'timbangearl@gmail.com,meldavetocmo@gmail.com',
+          _cc: 'evan.madagan@vsu.edu.ph',
           _subject: 'New message from Project SAFE Contact Form',
           _template: 'table',
           _captcha: 'false'
@@ -45,28 +42,7 @@ export function Contact() {
       setIsSubmitting(false);
     }
   };
-
-  const team = [
-    {
-      name: "Shanice P. Tagoon",
-      phone: "+63 9352318594",
-      email: "shanicetagoon02@gmail.com",
-      image: shaniceImg,
-    },
-    {
-      name: "Earl John O. Timbang",
-      phone: "+63 9273753061",
-      email: "timbangearl@gmail.com",
-      image: earlImg,
-    },
-    {
-      name: "Meld-Ve G. Tocmo",
-      phone: "+63 9933261836",
-      email: "meldavetocmo@gmail.com",
-      image: meldImg,
-    },
-  ];
-
+  
   return (
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -78,8 +54,8 @@ export function Contact() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-          <div className="bg-white rounded-xl shadow-sm p-8">
+        <div className="flex flex-col items-center gap-8 mb-12">
+          <div className="bg-white rounded-xl shadow-sm p-8 w-full max-w-md mx-auto">
             <h2 className="mb-6 text-gray-900">Send Us a Message</h2>
 
             {isSubmitted && (
@@ -156,53 +132,9 @@ export function Contact() {
                 {isSubmitting ? "Sending..." : "Send Message"}
               </button>
             </form>
-            <p className="mt-4 text-xs text-gray-500 text-center">
-              Your message will be sent to Shanice, Earl John, and Meld-Ve
-            </p>
           </div>
 
-          <div className="space-y-6">
-            <div className="bg-white rounded-xl shadow-sm p-8">
-              <h2 className="mb-6 text-gray-900">Our Team</h2>
-              <p className="text-gray-600 mb-6">
-                Project SAFE was created by a dedicated team of students committed to
-                increasing sexual health awareness in Southern Leyte.
-              </p>
-              <div className="space-y-4">
-                {team.map((member, index) => (
-                  <div
-                    key={index}
-                    className="p-4 border border-gray-200 rounded-lg hover:border-teal-300 hover:shadow-md transition-all"
-                  >
-                    <div className="flex items-center gap-4 mb-3">
-                      <img
-                        src={member.image}
-                        alt={member.name}
-                        className="w-16 h-16 rounded-full object-cover border-2 border-teal-500"
-                      />
-                      <h3 className="text-gray-900">{member.name}</h3>
-                    </div>
-                    <div className="space-y-2 ml-20">
-                      <div className="flex items-center gap-2 text-gray-600">
-                        <Phone className="w-4 h-4" />
-                        <span>{member.phone}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-gray-600">
-                        <Mail className="w-4 h-4" />
-                        <a
-                          href={`mailto:${member.email}`}
-                          className="hover:text-teal-600 transition-colors"
-                        >
-                          {member.email}
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="bg-gradient-to-br from-red-500 to-pink-600 text-white rounded-xl p-6">
+          <div className="bg-gradient-to-br from-red-500 to-pink-600 text-white rounded-xl p-6 w-full max-w-md mx-auto">
               <h3 className="mb-3">Emergency Contacts</h3>
               <div className="space-y-2">
                 <p className="flex items-center gap-2">
@@ -214,8 +146,6 @@ export function Contact() {
                   <span>DOH Hotline: 8651-7800</span>
                 </p>
               </div>
-            </div>
-          </div>
         </div>
 
         <div className="bg-white rounded-xl shadow-sm p-8">
@@ -273,5 +203,6 @@ export function Contact() {
         </div>
       </div>
     </div>
+  </div>
   );
 }
